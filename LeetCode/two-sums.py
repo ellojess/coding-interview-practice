@@ -10,7 +10,13 @@ element twice.
 Summary: 
 Find the indices of two numbers that add up to a specific target.
 
-Example: 
+Examples:  
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+
 Input: [2,7,11,15, 3], Target: 10 
 Output: [1,4]
 
@@ -23,4 +29,9 @@ value and the target is a key within the dictionary,
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
+        numsDict = {} 
+        for index, value in enumerate(nums):
+            difference = target - value
+            if difference in numsDict: 
+                return [numsDict[difference], index]
+            numsDict[value] = index
