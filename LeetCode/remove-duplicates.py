@@ -34,4 +34,10 @@ original array and another one for just the unique elements.
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        current = 0
         
+        for i in range(1, len(nums)):
+            if nums[current] != nums[i]:
+                current += 1
+                nums[current] = nums[i]
+        return current + 1
