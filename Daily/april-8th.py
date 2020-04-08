@@ -27,14 +27,29 @@ See if the values of list are equal
 If they are, then return true 
 If not then False """
 
+list: [int] = [-3, 5, 6, -7, 8, 9, 10, 11, 5, 10, 2, -6]
+
+# def checkDuplicates(list): 
+# 	sortedList = list.sort() 
+# 	setList = set() 
+# 	for item in sortedList: 
+# 		setList.append(item)
+# 		if item in setList:
+# 			return True
+# 		else: 
+# 			return False 
+
+# checkDuplicates(list)
+
 def checkDuplicates(list): 
-	sortedList = list.sort() 
 	setList = set() 
-	for item in sortedList: 
-		setList.append(item): 
-			if item in setList:
-				return True
-			else: 
-				return False 
+	for item in list: 
+		setList.add(item)
+		if item in setList:
+		    return True
+		else: 
+		    return False
+
+print(checkDuplicates(list))
 		
-# ** WHat’s the benefit of sorting when looking for duplicates ?? 
+# ** What’s the benefit of sorting when looking for duplicates? 
