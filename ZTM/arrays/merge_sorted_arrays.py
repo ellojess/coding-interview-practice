@@ -14,35 +14,33 @@ check conditions:
 - if one of the inputs is an empty array 
 - if both inputs are empty arrays 
 - arrays are different lengths 
+
+Steps: 
+- compare first items from each array, append smallest to new array 
+
 """
 
 def merge_sorted_arrays(arr1, arr2):
     merged_arr = []
-    arr1_item = arr1[0]
-    arr2_item = arr2[0]
-    i = 1
-    j = 1
+    i, j = 0, 0
 
     # check inputs 
     if len(arr1) == 0:
         return arr2
     if len(arr2) == 0:
         return arr1
-    if len(arr1) == 0 and len(arr2) == 0:
-        return "both arrays are empty"
 
-    while arr1_item or arr2_item:
-        if arr1_item < arr2_item:
-            merged_arr.append(arr1_item)
-            arr1_item = arr1[i]
-            i += 1
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] <= arr2[j]:
+            merged_arr.append(arr1[i])
+            i += 1   
         else: 
-            merged_arr.append(arr2_item)
-            arr2_item = arr1[j]
+            merged_arr.append(arr2[j])
             j += 1
 
-    return merged_arr
+    return merged_arr+arr1[i:]+arr2[j:]
 
 print(merge_sorted_arrays([0,3,4,31], [3,4,6,30]))
 print(merge_sorted_arrays([], [3,4,6,30]))
 print(merge_sorted_arrays([0,3,4,31], [3,4]))
+print(merge_sorted_arrays([],[]))
