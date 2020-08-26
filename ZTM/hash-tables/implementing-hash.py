@@ -26,9 +26,16 @@ class HashTable:
         for i in range(len(reference)):
             if reference[i][0] == key:
                 return reference[i][1]
-        return -1
+        return None
 
-
+    def keys(self): 
+        keys_arr = [] 
+        for i in range(self.size):
+            if self.data[i] != None:
+                for j in range(len(self.data[i])):
+                    keys_arr.append(self.data[i][j][0])
+        return keys_arr
+        
 
 food_hash_table = HashTable(2)
 food_hash_table._hash('4')
